@@ -66,9 +66,14 @@ function Start() {
     textoScore = document.querySelector(".score");
     dino = document.querySelector(".dino");
     document.addEventListener("keydown", HandleKeyDown);
+        
+    // Detectar toque en pantalla para dispositivos móviles
+    document.addEventListener("touchstart", HandleTouchStart);
     restart = document.querySelector(".restart")
 }
-
+function HandleTouchStart(ev) {
+    Saltar();  // Usar la misma función de salto cuando se toque la pantalla
+}
 function Update() {
     if(parado) return;
     
@@ -241,6 +246,7 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
         (aRect.left + paddingLeft > (bRect.left + bRect.width))
     );
 }
-// Tu código del juego
+
+
 
 
